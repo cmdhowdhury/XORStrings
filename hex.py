@@ -1,21 +1,34 @@
 import sys
 mode = sys.argv[1]
-keyfile = sys.argv[2]
-inpfile = sys.argv[3]
-key = open(keyfile).read()[:-1] #removes the mandatory \n at the end of the file to support one line messages.
-inp = open(inpfile).read()[:-1] #removes the mandatory \n at the end of the file to support one line messages.
+key = sys.argv[2]
+inp = sys.argv[3]
 debug = False
 
+if key == "key1":
+    key = "A"
+elif key == "key2":
+    key = "FISH"
+
+if inp == "message1":
+    inp = "hello"
+elif inp == "message2":
+    inp = ")$--."
+elif inp == "message3":
+    inp = "this is a test"
+elif inp == "message4":
+    inp = "f=;!5i:;f(s<#:'"  
+
+
 if(debug):
-    print("mode:"+mode)
+    print("mode: "+mode)
     print("key: "+key)
     print("inp: "+inp)
 
-if mode == numOut:
+if mode == "numOut":
     #inp2 = list(inp)
     for i in list(inp):
         print(hex(ord(i))[2:], end=" ")
-elif mode == human:
+else:
     for (a,b) in zip(list(inp), list(key)):
         print(''.join(chr(ord(a)^ord(b))), end='')
 
